@@ -3,19 +3,22 @@ const movies = [
         id: 1,
         title: 'Harry Potter',
         desc: 'Movie about the wizard',
-        image: 'https://www.irishtimes.com/polopoly_fs/1.3170107.1501253408!/image/image.jpg_gen/derivatives/box_620_330/image.jpg' 
+        image: 'https://www.irishtimes.com/polopoly_fs/1.3170107.1501253408!/image/image.jpg_gen/derivatives/box_620_330/image.jpg',
+        alt: 'Harry Potter'
     },
     {
         id: 2,
         title: 'Lion king',
         desc: 'Movie about the savannah king',
-        image: 'https://cdn.galleries-dev.smcloud.net/t/galleries/gf-CG8m-voqq-EoeZ_krol-lew-664x0-nocrop.jpg' ,
+        image: 'https://cdn.galleries-dev.smcloud.net/t/galleries/gf-CG8m-voqq-EoeZ_krol-lew-664x0-nocrop.jpg',
+        alt: 'Lion King'
     },
     {
         id: 3,
         title: 'Lord of the Ring',
         desc: 'Movie about the ring of power',
-        image: 'https://i.cdn29.hu/apix_collect_c/1405/a-gyuruk-ura/a_gyuruk_ura_screenshot_20171104095103_1_original_760x425_cover.jpg'
+        image: 'https://i.cdn29.hu/apix_collect_c/1405/a-gyuruk-ura/a_gyuruk_ura_screenshot_20171104095103_1_original_760x425_cover.jpg',
+        alt: 'Lord of the Ring'
     }
 ];
 
@@ -42,7 +45,7 @@ const Movie = React.createClass ({
             React.createElement('li', {},
                 React.createElement(MovieTitle, {movieTitle: this.props.movie.title}),
                 React.createElement(MovieDesc, {movieDesc: this.props.movie.desc}),
-                React.createElement(MovieImage, {movieImage: this.props.movie.image})
+                React.createElement(MovieImage, {movieImage: this.props.movie.image, alt: this.props.movie.alt})              
             )
         );
     }
@@ -76,7 +79,7 @@ const MovieImage = React.createClass ({
     },
     render: function () {
         return (
-            React.createElement('img', {src: this.props.movieImage})
+            React.createElement('img', {src: this.props.movieImage, alt: this.props.alt})
         );
     }
 });
@@ -85,7 +88,7 @@ const element = React.createClass({
     render: function () {
         return (
             React.createElement('div', {},
-                React.createElement('h1', {},'Movies: '),
+                React.createElement('h1', {},'Movies:'),
                 React.createElement(MovieList, {movies: movies}) 
             )
         );
